@@ -13,6 +13,7 @@ beforeAll(async () => {
     let options = new chrome.Options();
     options.addArguments('--disable-search-engine-choice-screen');
     options.addArguments('--lang=en-GB');
+    options.addArguments(['--headless','--no-sandbox', '--disable-dev-shm-usage'])
 
     driver = await new Builder()
         .forBrowser('chrome')
@@ -43,7 +44,7 @@ describe('authentication tests', () => {
 
             // 3. Wait till Registration page is loaded
             await driver.wait(until.elementLocated(By.xpath('/html/body/div/h1')));
-            let h1Element = driver.findElement(By.xpath('/html/body/div/h1'));
+            let h1Element = await driver.findElement(By.xpath('/html/body/div/h1'));
             await driver.wait(until.elementTextIs(h1Element, 'Register'));
 
             // 4. Enter "testuser1" in username field
