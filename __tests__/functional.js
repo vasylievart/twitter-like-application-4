@@ -3,8 +3,6 @@ const chrome = require('selenium-webdriver/chrome');
 const axios = require('axios');
 const path = require('path');
 
-const app = require('../app.js');
-
 let driver = null;
 
 beforeAll(async () => {
