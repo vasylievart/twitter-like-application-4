@@ -1,6 +1,8 @@
 const { Builder, By, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
+const axios = require('axios');
 const path = require('path');
+
 const app = require('../app.js');
 
 let driver = null;
@@ -95,4 +97,21 @@ describe('authentication tests', () => {
         });
 
     }, 10000);
+
+    describe('Testing API Endpoints', () => {
+        test('Testing GET /api/posts', async () => {
+            const res = await axios.get('http://localhost:3000/api/posts');
+            expect(Array.isArray(res.data)).toBe(true);
+        });
+    
+        test('Testing POST /api/posts', async () => {
+            const res = await axios.post('http://localhost:3000/api/posts', {
+                'username': 'testuser1',
+                'password': 'examplePassword123',
+                'content': 'Test Post'
+            });
+    
+            expect(res.data.message).toBe('Post created successfully.');
+        });
+    });
 });
