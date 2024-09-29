@@ -60,7 +60,7 @@ describe('authentication tests', () => {
 
             // 7. Verify that the user is redirected to the Login page
             await driver.wait(until.elementLocated(By.xpath('/html/body/div/h1')));
-            h1Element = driver.findElement(By.xpath('/html/body/div/h1'));
+            h1Element = await driver.findElement(By.xpath('/html/body/div/h1'));
 
             expect(await h1Element.getText()).toBe("Login");
 
@@ -88,7 +88,7 @@ describe('authentication tests', () => {
             // 5. Verify that the application takes the user to the welcome page (also known as the dashboard)
             await driver.wait(until.elementLocated(By.xpath('/html/body/div/h1')));
 
-            let h1Element = driver.findElement(By.xpath('/html/body/div/h1'));
+            let h1Element = await driver.findElement(By.xpath('/html/body/div/h1'));
             let h1Text = await h1Element.getText();
 
             expect(h1Text).toBe('Welcome, testuser1');
