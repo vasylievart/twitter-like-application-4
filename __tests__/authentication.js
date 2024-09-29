@@ -7,7 +7,7 @@ let driver = null;
 
 beforeAll(async () => {
 
-    let chromeDriverPath = path.resolve('C:/Users/AIMS TECH/Desktop/twitter-like-application-4/chromedriver.exe');
+    let chromeDriverPath = path.join(__dirname, '../chromedriver.exe');
     let service = new chrome.ServiceBuilder(chromeDriverPath);
 
     let options = new chrome.Options();
