@@ -13,7 +13,7 @@ beforeAll(async () => {
     let options = new chrome.Options();
     options.addArguments('--disable-search-engine-choice-screen');
     options.addArguments('--lang=en-GB');
-    options.addArguments(['--headless','--no-sandbox', '--disable-dev-shm-usage'])
+    options.addArguments(['--headless','--no-sandbox', '--disable-dev-shm-usage']);
 
     driver = await new Builder()
         .forBrowser('chrome')
@@ -70,7 +70,6 @@ describe('authentication tests', () => {
 
     describe('login system', () => {
         test('users can successfully login with correct credentials', async () => {
-            
             // 1. Go to the login page
             driver.get('http://localhost:3000');
             
@@ -93,9 +92,9 @@ describe('authentication tests', () => {
             let h1Text = await h1Element.getText();
 
             expect(h1Text).toBe('Welcome, testuser1');
-        });
+        }, 10000);
 
-    }, 10000);
+    });
 
     describe('Testing API Endpoints', () => {
         test('Testing GET /api/posts', async () => {
