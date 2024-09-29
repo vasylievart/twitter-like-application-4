@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+  
+  <div class="container">    
+    <a href="/profile" class="btn">Go to Profile</a>
+    <h1>Welcome, <%= user.username %></h1>
+
+    <form action="/post" method="post">
+      <textarea name="content" required placeholder="What's on your mind?"></textarea>
+      <button type="submit">Post</button>
+    </form>
+
+
+    <h2>Posts:</h2>
+    <ul>
+      <% posts.forEach(post => { %>
+        <li>
+          <div>
+            <img src="<%= post.user_profile_picture || '/uploads/default.jpg' %>" alt="Profile Picture" class="profile-img">
+            <strong><%= post.post_username %></strong>
+          </div>
+          <p><%= post.post_content %></p>
+          <div>
+            <form action="/like" method="post" style="display:inline;">
+              <input type="hidden" name="postId" value="<%= post.post_id %>">
+              <button type="submit" class="like-btn"><%= post.post_likes %> 👍</button>
+            </form>
+          </div>
+    
+          <h3>Comments:</h3>
+          <ul>
+            <% post.comments.length > 0 ? post.comments.forEach(comment => { %>
+              <li>
+                <div>
+                  <img src="<%= comment.comment_user_profile_picture || '/uploads/default.jpg' %>" alt="Profile Picture" class="profile-img">
+                  <strong><%= comment.comment_username %>:</strong>
+                </div>
+                <p><%= comment.comment_content %></p>
+                <form action="/like-comment" method="post" style="display:inline;">
+                  <input type="hidden" name="commentId" value="<%= comment.comment_id %>">
+                  <button type="submit" class="like-btn"><%= comment.comment_likes %> 👍</button>
+                </form>
+              </li>
+            <% }) : '<li>No comments yet</li>'; %>
+          </ul>
+
+          <form action="/comment" method="post">
+            <input type="hidden" name="postId" value="<%= post.post_id %>">
+            <textarea name="content" required placeholder="Add a comment"></textarea>
+            <button type="submit">Comment</button>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "twitter-like-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "npx jest",
+    "test-with-server": "start-server-and-test start http://localhost:3000 test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "bcrypt": "^5.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "jest": "^29.7.0",
+    "multer": "^1.4.5-lts.1",
+    "selenium-webdriver": "^4.24.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "start-server-and-test": "^2.0.8"
+  }
+}
