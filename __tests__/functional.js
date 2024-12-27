@@ -49,11 +49,11 @@ describe('authentication tests', () => {
 
             // 4. Enter "testuser1" in username field
             let usernameField = await driver.findElement(By.id('username-input'));
-            usernameField.sendKeys("testuser1");
+            usernameField.sendKeys("testuser2");
 
             // 5. Enter "examplePassword123" in password field
             let passwordField = await driver.findElement(By.id('password-input'));
-            passwordField.sendKeys("examplePassword123");
+            passwordField.sendKeys("examplePassword124");
 
             // 6. Click "Register"
             let registerBtn = await driver.findElement(By.id('register-btn'));
