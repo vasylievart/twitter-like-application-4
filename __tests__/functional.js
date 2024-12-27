@@ -49,11 +49,11 @@ describe('authentication tests', () => {
 
             // 4. Enter "testuser1" in username field
             let usernameField = await driver.findElement(By.id('username-input'));
-            usernameField.sendKeys("testuser2");
+            usernameField.sendKeys("testuser5");
 
             // 5. Enter "examplePassword123" in password field
             let passwordField = await driver.findElement(By.id('password-input'));
-            passwordField.sendKeys("examplePassword124");
+            passwordField.sendKeys("examplePassword125");
 
             // 6. Click "Register"
             let registerBtn = await driver.findElement(By.id('register-btn'));
@@ -75,11 +75,11 @@ describe('authentication tests', () => {
             
             // 2. Enter "testuser1" in the username field
             let usernameField = await driver.findElement(By.id('username-input'));
-            usernameField.sendKeys('testuser1');
+            usernameField.sendKeys('testuser5');
             
             // 3. Enter "examplePassword123" in the password field
             let passwordField = await driver.findElement(By.id('password-input'));
-            passwordField.sendKeys('examplePassword123');
+            passwordField.sendKeys('examplePassword125');
             
             // 4. Click "Login"
             let loginBtn = await driver.findElement(By.xpath('/html/body/div/form/button'));
@@ -91,7 +91,7 @@ describe('authentication tests', () => {
             let h1Element = await driver.findElement(By.xpath('/html/body/div/h1'));
             let h1Text = await h1Element.getText();
 
-            expect(h1Text).toBe('Welcome, testuser1');
+            expect(h1Text).toBe('Welcome, testuser5');
         }, 10000);
 
     });
@@ -104,8 +104,8 @@ describe('authentication tests', () => {
     
         test('Testing POST /api/posts', async () => {
             const res = await axios.post('http://localhost:3000/api/posts', {
-                'username': 'testuser1',
-                'password': 'examplePassword123',
+                'username': 'testuser5',
+                'password': 'examplePassword125',
                 'content': 'Test Post'
             });
     

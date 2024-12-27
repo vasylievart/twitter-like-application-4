@@ -19,7 +19,7 @@
     "express-session": "^1.18.0",
     "jest": "^29.7.0",
     "multer": "^1.4.5-lts.1",
-    "selenium-webdriver": "^4.24.0",
+    "selenium-webdriver": "^4.27.0",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
